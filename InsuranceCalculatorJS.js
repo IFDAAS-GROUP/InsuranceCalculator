@@ -17,13 +17,24 @@ var K1 = 1;
 var K2 = 1;
 var K3 = 1;
 var K4 = 1;
+var K4_2 = 1;
+var K4_3 = 1;
+var K4_4 = 1;
 var K5 = 1;
 var tourists = 1;
 var rate = 1;
 var rate_arr;
 var SSnv = 0;
 var SPtr = 0;
+var SPtr1 = 0;
+var SPtr2 = 0;
+var SPtr3 = 0;
+var SPtr4 = 0;
 var SPnv = 0;
+var SPnv1 = 0;
+var SPnv2 = 0;
+var SPnv3 = 0;
+var SPnv4 = 0;
 var SPzag = 0;
 var flag = 0;
 var flag_acc = 0;
@@ -116,7 +127,6 @@ document.getElementById("insCur").onchange = function() {
 	currency = document.getElementById("insCur").value;
 	document.getElementById("currency").innerHTML = " " + currency;
 	countSPzag();
-	
 }
 
 //Коригуючі коефіцієнти в залежності 
@@ -125,7 +135,18 @@ document.getElementById("K4").onchange = function() {
 	K4 = document.getElementById("K4").value;
 	countSPzag();
 }
-
+document.getElementById("K4_2").onchange = function() {
+	K4_2 = document.getElementById("K4_2").value;
+	countSPzag();
+}
+document.getElementById("K4_3").onchange = function() {
+	K4_3 = document.getElementById("K4_3").value;
+	countSPzag();
+}
+document.getElementById("K4_4").onchange = function() {
+	K4_4 = document.getElementById("K4_4").value;
+	countSPzag();
+}
 //Страхова сума
 document.getElementById("insSum").onchange = function() {
 	insSum = document.getElementById("insSum").value;
@@ -512,14 +533,54 @@ function countSPtr() {
 		rate = rate_arr["EUR"];
 	}
 	countSPb();
-	SPtr = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4*K5*rate;
+	if (tourists == 1) {
+		SPtr = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4*K5*rate;
+	}
+	if (tourists == 2) {
+		SPtr1 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4*K5*rate;
+		SPtr2 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_2*K5*rate;
+		SPtr = SPtr1 + SPtr2;
+	}
+	if (tourists == 3) {
+		SPtr1 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4*K5*rate;
+		SPtr2 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_2*K5*rate;
+		SPtr3 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_3*K5*rate;
+		SPtr = SPtr1 + SPtr2 + SPtr3;
+	}
+	if (tourists == 4) {
+		SPtr1 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4*K5*rate;
+		SPtr2 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_2*K5*rate;
+		SPtr3 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_3*K5*rate;
+		SPtr4 = SPb*days*Kpr*Kfr*Kter*K1*K2*K3*K4_4*K5*rate;
+		SPtr = SPtr1 + SPtr2 + SPtr3 + SPtr4;
+	}
+	
 	//document.getElementById("SPtr").value = SPtr;
-
 }
 /*Страховий платіж (СПнв) з добровільного страхуванням від нещасних випадків, грн.*/
 function countSPnv(){
 	countSPb_accident();
-	SPnv = SSnv*SPb_accident*K1*K2*K3*K4*K5;
+	if (tourists == 1) {
+		SPnv = SSnv*SPb_accident*K1*K2*K3*K4*K5;
+	}
+	if (tourists == 2) {
+		SPnv1 = SSnv*SPb_accident*K1*K2*K3*K4*K5;
+		SPnv2 = SSnv*SPb_accident*K1*K2*K3*K4_2*K5;
+		SPnv = SPnv1 + SPnv2;
+	}
+	if (tourists == 3) {
+		SPnv1 = SSnv*SPb_accident*K1*K2*K3*K4*K5;
+		SPnv2 = SSnv*SPb_accident*K1*K2*K3*K4_2*K5;
+		SPnv3 = SSnv*SPb_accident*K1*K2*K3*K4_3*K5;
+		SPnv = SPnv1 + SPnv2 + SPnv3;
+	}
+	if (tourists == 4) {
+		SPnv1 = SSnv*SPb_accident*K1*K2*K3*K4*K5;
+		SPnv2 = SSnv*SPb_accident*K1*K2*K3*K4_2*K5;
+		SPnv3 = SSnv*SPb_accident*K1*K2*K3*K4_3*K5;
+		SPnv4 = SSnv*SPb_accident*K1*K2*K3*K4_4*K5;
+		SPnv = SPnv1 + SPnv2 + SPnv3 + SPnv4;
+	}	
 	//document.getElementById("SPnv").value = SPnv;
 }
 //Розрахунок загального страхового платежу на 1 (одну) особу за Міжнародни
@@ -533,7 +594,7 @@ function countSP() {
 //Розрахунок загального страхового платежу за Міжнародним договоро//добровільного комплексного страхування під час перебування за кордоном
 function countSPzag() {
 	countSP();
-	SPzag = SP*tourists;
+	SPzag = SP;
 	
 	if (!SPzag) {
 		document.getElementById("sum").innerHTML = "0,00 Грн.";

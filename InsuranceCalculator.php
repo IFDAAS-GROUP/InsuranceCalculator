@@ -1,9 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
 .column{
 	display: inline-block;
 }
@@ -31,107 +27,45 @@ table, th, td {
 			</label>
 			<input id="tourists" name="tourists" type="number" value="1" required>
 			<br><br>
-			<!--<lable for="K4">Вік Застрахованої особи</lable>
-			<lable for="K4_2">Вік 2-ї застрахованої особи</lable>
-			<lable for="K4_3">Вік 3-ї застрахованої особи</lable>
-			<lable for="K4_4">Вік 4-ї застрахованої особи</lable>-->
-		<div>
-			<div class="column">
-			Вік Застрахованої особи<br>
-				<select id="K4" name="K4">
-					<option value="1" selected>Виберіть вік застрахованої особи</option>
-					<option value="1.5">від 1 року до 3 років</option>
-					<option value="1.5">від 60 до 65 років</option>
-					<option value="2">від 66 до 75 років</option>
-				</select>
-			</div>
-			<div class="column" id="K4_2_div" style="display:none">
-			Вік 2-ї застрахованої особи<br>
-				<select id="K4_2" name="K4_2" >
-					<option value="1" selected>Виберіть вік застрахованої особи</option>
-					<option value="1.5">від 1 року до 3 років</option>
-					<option value="1.5">від 60 до 65 років</option>
-					<option value="2">від 66 до 75 років</option>
-				</select>
-			</div>
-			<div class="column" id="K4_3_div" style="display:none">
-			Вік 3-ї застрахованої особи<br>
-				<select id="K4_3" name="K4_3">
-					<option value="1" selected>Виберіть вік застрахованої особи</option>
-					<option value="1.5">від 1 року до 3 років</option>
-					<option value="1.5">від 60 до 65 років</option>
-					<option value="2">від 66 до 75 років</option>
-				</select>
-			</div>
-			<div class="column" id="K4_4_div" style="display:none">
-			Вік 4-ї застрахованої особи<br>
-				<select id="K4_4" name="K4_4">
-					<option value="1" selected>Виберіть вік застрахованої особи</option>
-					<option value="1.5">від 1 року до 3 років</option>
-					<option value="1.5">від 60 до 65 років</option>
-					<option value="2">від 66 до 75 років</option>
-				</select>
-			</div>
-		</div>
-			<!--<table>
-				<tr>
-					<td>
-						<label for="K4">Вік Застрахованої особи</label>
-					</td>
-
-					<td id="K4_2_header" style="display:none; text-align: left">
-						<label for="K4_2">Вік 2-ї застрахованої особи</label>
-					</td>
-
-					<td id="K4_3_header" style="display:none; text-align: left">
-						<label for="K4_3">Вік 3-ї застрахованої особи</label>
-					</td>
-
-					<td id="K4_4_header" style="display:none; text-align: left">
-						<label for="K4_4">Вік 4-ї застрахованої особи</label>
-					</td>
-					<th>Вік Застрахованої особи</th>
-					<th id="K4_2_header" style="display:none">Вік 2-ї застрахованої особи</th>
-					<th id="K4_3_header" style="display:none">Вік 3-ї застрахованої особи</th>
-					<th id="K4_4_header" style="display:none">Вік 4-ї застрахованої особи</th>
-				</tr>
-				<tr>
-					<td>
-						<select id="K4" name="K4">
-							<option value="1" selected>Виберіть вік застрахованої особи</option>
-							<option value="1.5">від 1 року до 3 років</option>
-							<option value="1.5">від 60 до 65 років</option>
-							<option value="2">від 66 до 75 років</option>
-						</select>
-					</td>
-					<td>
-						<select id="K4_2" name="K4_2" style="display:none">
-							<option value="1" selected>Виберіть вік застрахованої особи</option>
-							<option value="1.5">від 1 року до 3 років</option>
-							<option value="1.5">від 60 до 65 років</option>
-							<option value="2">від 66 до 75 років</option>
-						</select>
-					</td>
-					<td>
-						<select id="K4_3" name="K4_3" style="display:none">
-							<option value="1" selected>Виберіть вік застрахованої особи</option>
-							<option value="1.5">від 1 року до 3 років</option>
-							<option value="1.5">від 60 до 65 років</option>
-							<option value="2">від 66 до 75 років</option>
-						</select>
-					</td>
-					<td>
-						<select id="K4_4" name="K4_4" style="display:none">
-							<option value="1" selected>Виберіть вік застрахованої особи</option>
-							<option value="1.5">від 1 року до 3 років</option>
-							<option value="1.5">від 60 до 65 років</option>
-							<option value="2">від 66 до 75 років</option>
-						</select>
-					</td>
-				</tr>
-			</table>	-->
-
 			
+			<div>
+				<div class="column">
+				Вік Застрахованої особи<br>
+					<select id="K4" name="K4">
+						<option value="1" selected>Виберіть вік застрахованої 	особи</option>
+						<option value="1.5">від 1 року до 3 років</option>
+						<option value="1.5">від 60 до 65 років</option>
+						<option value="2">від 66 до 75 років</option>
+					</select>
+				</div>
+				<div class="column" id="K4_2_div" style="display:none">
+				Вік 2-ї застрахованої особи<br>
+					<select id="K4_2" name="K4_2" >
+						<option value="1" selected>Виберіть вік застрахованої 	особи</option>
+						<option value="1.5">від 1 року до 3 років</option>
+						<option value="1.5">від 60 до 65 років</option>
+						<option value="2">від 66 до 75 років</option>
+					</select>
+				</div>
+				<div class="column" id="K4_3_div" style="display:none">
+				Вік 3-ї застрахованої особи<br>
+					<select id="K4_3" name="K4_3">
+						<option value="1" selected>Виберіть вік застрахованої 	особи</option>
+						<option value="1.5">від 1 року до 3 років</option>
+						<option value="1.5">від 60 до 65 років</option>
+						<option value="2">від 66 до 75 років</option>
+					</select>
+				</div>
+				<div class="column" id="K4_4_div" style="display:none">
+				Вік 4-ї застрахованої особи<br>
+					<select id="K4_4" name="K4_4">
+						<option value="1" selected>Виберіть вік застрахованої 	особи</option>
+						<option value="1.5">від 1 року до 3 років</option>
+						<option value="1.5">від 60 до 65 років</option>
+						<option value="2">від 66 до 75 років</option>
+					</select>
+				</div>
+			</div>			
 			<br><br>
 			<label for="dateStart">Початок дії договору</label>	
 			<input type="date" id="dateStart" name="dateStart" required>
